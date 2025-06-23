@@ -1,0 +1,82 @@
+"""
+Note: Don’t use any built in functions for any of these questions
+
+1. Write a function that removes all even numbers from an array of integers and returns the resulting array.
+Example:
+Input: [1, 2, 3, 4, 5, 6] 
+Output: [1, 3, 5]
+
+Example 2:
+Input: [10, 15, 20, 25]  
+Output: [15, 25]
+
+2. Write a function that returns the second largest number in an array of integers. You may assume the array has at least two unique values.
+Example:
+Input: [3, 1, 4, 2, 5] 
+Output: 4
+
+Example 2:
+Input: [10, 5, 10, 8]  
+Output: 8
+
+3. Write a function that takes in an array and returns a new array with the elements in reverse order.
+Example:
+Input: [1, 2, 3, 4, 5]
+Output: [5, 4, 3, 2, 1]
+
+Example 2:
+Input: ["a", "b", "c"]
+Output: ["c", "b", "a"]
+
+Bonus: Can you reverse the array without using extra space (don’t create a new array) ?
+
+"""
+#1
+def remove_even_numbers(arr):
+    result = []
+    for n in arr:
+        if n % 2 != 0:#if the number is divisible by two and not equal to 0, or its not starting at 0, it starts at 1  # Keep odd numbers (not even)
+            result.append(n)
+    return result
+
+# Test the function
+test_array = [1, 2, 3, 4, 5, 6]
+test_array2 = [10, 15, 20, 25]
+result = remove_even_numbers(test_array)
+result2 = remove_even_numbers(test_array2)
+print(result)
+print(result2)
+
+#2 #did end up getting stuck and asking assistant for tips on how to solve this problem, but not give me the answer
+# i did make sure to go through and comment out the actions and logic of each line to be able to show that i have understanding of how this works. did without assistant. 
+
+def ret_second_largest(arr):
+    max = arr[0] #max is the first element
+    secmax = arr[1] #secmax is the second element
+    if secmax > max: # if the second is bigger than the first
+        max, secmax = secmax, max # sec max becomes first and max becomes second element in the array for the largest
+    #for this section to help better understand the logic: When finding the second largest number, if you find a new maximum, the old maximum becomes the second maximum; if you find a number bigger than the current second maximum (but smaller than the maximum), it becomes the new second maximum.
+    for i in range(2, len(arr)): #for a number in the range of the array from the 3rd element to the end
+        n = arr[i] #n is an element in the list
+        if n > max: #if n is greater than max
+            secmax = max #secmax becomes max
+            max = n #max becomes n
+        elif n > secmax and n != max: # if n is not equal to secmax and n is greater than secmax
+            secmax = n #secmax becomes n
+# in a way lines 59 through 63 are writing out and demonstratin gth elogic behind lines 54 and 55: if the second is larger, then the second becomes the max, and max is now an element in the array. also if the second is not larger, then the max is the first element again and secmax is the second element in the array, or n, just a random element in the array
+    return secmax
+
+tester = [3, 1, 4, 2, 5]
+tester2 = [10, 5, 10, 8]
+print(ret_second_largest(tester))
+print(ret_second_largest(tester2))
+
+#3 
+def reverse_array(arr):
+    for n in range(len(arr)):
+        arr = arr[::-1] #[start:stop:step]
+    return arr
+tes1 = ["c","b","a"]
+tes2 = ["a", "b", "c"]
+print(reverse_array(tes1))
+print(reverse_array(tes2))
