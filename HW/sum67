@@ -1,0 +1,28 @@
+def sum67(nums):
+  """
+  objective: return the sum of the array 
+  constraints: if the array has a 6 in it: it needs to return as a 0
+  if there are numbers after the 6: they need to also equal 0
+  they numbers will count as 0 until a 7 comes up, after the 7, 
+  the numbers contain their real value 
+  basically ignore the number 6 adn 7 and any numbers in the array if they are between the 6 and 7 
+
+  logic:
+  for n in nums:
+  if n == 6 or n == 7:
+  return 0
+  for nums in range(6,7)
+  return 0
+  else:
+  return n
+  
+  """
+  for n in nums:
+    if n == 6 or n == 7:
+      return 0
+      for num in range[6,7]:
+        if 6 < n < 7:
+          return 0
+        else:
+          return n
+  
