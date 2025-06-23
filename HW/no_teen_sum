@@ -1,0 +1,33 @@
+"""
+objective: find the sum of a,b,c
+constraints: 1. if its 13-19 it counts as a 0
+2. if its 15 or 16 it it keeps the same value
+3. you have to use def fix_teen to help not repeating the logic 3 times
+
+logic:
+def no_teen_sum(a,b,c):
+return fix_teen(a) + fix_teen(b) + fix_teen(c)
+
+def fix_teen(n):
+if n <= 13 or n >= 19:
+return 0
+if n == 15 or n == 16:
+return n
+
+
+return n 
+"""
+def no_teen_sum(a, b, c):
+  return fix_teen(a) + fix_teen(b) + fix_teen(c)
+  
+def fix_teen(n):
+  if n <= 13 or n <= 19:
+    if n == 15 or n == 16:
+      return n
+    else:
+      return 0
+      
+  return n 
+    
+    
+  
