@@ -1,0 +1,98 @@
+class ArrayList:
+    def __init__(self, initial_capacity=10):
+        """
+        Initialize the ArrayList with an initial capacity.
+        """
+        self.arr = []
+        self.initial_capacity = initial_capacity
+        pass
+
+    def add(self, element):
+        """
+        Add an element to the end of the ArrayList.
+        if you want to add an element to the array, youre going to need to append it to the end 
+        """
+        self.arr.append(element)
+        return self.arr
+        pass
+
+    def insert(self, index, element):
+        """
+        Insert an element at the specified index.
+        """
+
+        self.arr.insert(index, element) #insert the element at the index after
+        return self.arr #return the new array
+
+        pass
+    def get(self, index):
+        """
+        Retrieve the element at the specified index.
+        """
+        self.index = index #initializing index
+        if index < len(self.arr): #if the index you want is inside the length of the array
+            return self.arr[index] #return the element in that index
+        else: #if the index you want is less than (or bigger than) the amount of spaces in the array
+           return f"element not in array"   #error message  
+                      
+        pass
+    def remove(self, index):
+        """
+        Remove the element at the specified index.
+        """
+        self.index = index #initializing index
+        if index < len(self.arr): #if the index you want is inside the length of the array
+            self.arr.pop(index) #remove the element in that index
+            return self.arr #print whats left in the array 
+        else: #if the index you want is less than (or bigger than) the amount of spaces in the array
+           return f"element not in array"   #error message  
+
+        pass
+    def size(self):
+        """
+        Return the current number of elements in the ArrayList.
+        """
+        elecount = 0
+        for i in self.arr:
+            elecount += 1
+        return elecount
+        pass
+    def is_empty(self):
+        """
+        Check if the ArrayList is empty.
+        """
+        # you can go without a for loop, 
+        # because youre not trying to get a specific element in the array, 
+        # just testing the array as a whole 
+
+        if len(self.arr) == 0: #if the length of the array is 0
+            return f"Empty"
+        else:
+            return f"Not Empty"
+        
+        pass
+    def _resize(self):
+        """
+        Resize the internal array when capacity is reached.
+        """
+        #if list is dynamic, we dont need to create an array of empty spots to fill
+        #if the len of the list is greater than the initial capacity, 
+        #we just update the initial capacity * 2 to hold what we want now. 
+        #then return the array 
+
+        if len(self.arr) >= self.initial_capacity:
+            self.initial_capacity *= 2
+            return self.arr
+
+        pass
+
+
+arr = ArrayList(initial_capacity=4)
+arr.add(4)
+arr.add(9)
+arr.add(8)
+arr.add(8)
+arr._resize()
+arr.add(5)
+arr.add(6)
+arr.add(19)
